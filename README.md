@@ -2,7 +2,7 @@
 <<<<<<< HEAD
 =======
 Structure de base pour l'application GrandPrix de l'IUT en Node.js. <br />
-Pour démarrer le serveur, taper "nodejs app" <br />
+Pour démarrer le serveur, taper "node app" <br />
 Le serveur sera à l'écoute du port 6800 <br />
 Le fichier config.db contient les paramètres pour la base MySQL <br /> </br>
 Vous devez compléter ce travail pour obtenir les écrans demandés.  <br />
