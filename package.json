@@ -4,7 +4,7 @@
     "private": true,
     "version": "0.1.4",
     "dependencies": {
-        "express": "*",
+        "express": "4",
         "express-handlebars": "*",
         "express-session": "*",
         "cookie-parser": "~1.3",
