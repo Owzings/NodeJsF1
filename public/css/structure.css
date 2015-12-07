@@ -1,24 +1,20 @@
     body {
     	font-family: "Segoe UI", "DejaVu Sans",Verdana, sans-serif;
     	background: url('/image/fond.jpg') repeat;
-		font-size:0.8em;
-    	margin: 0; /* il est conseillé de mettre à zéro la marge et le remplissage de l'élément body,
-       pour tenir compte des différentes valeurs par défaut des navigateurs */
+		  font-size:0.8em;
+    	margin: 0;
     	padding: 0;
-    	text-align: center; /* ce paramétrage centre le conteneur dans les navigateurs IE 5.x.
-       Le texte est ensuite aligné à gauche (valeur par défaut) dans le sélecteur #container */
+    	text-align: center;
     	color: #000000;
     }
     .monBody #container {
-    	width: 900px;  /* paramétrage de la largeur à 20 pixels de moins que le plein écran (800 pixels) 
-      pour tenir compte de l'habillage du navigateur et éviter l'apparition d'un ascenseur horizontal */
-    	margin: 0 auto; /* les marges automatiques (et dotées d'une largeur positive) centrent la page */
-    	text-align: left; /* ce paramétrage annule le paramètre text-align: center de l'élément body. */
+    	width: 900px;
+    	margin: 0 auto;
+    	text-align: left;
     	background:#ffffff;
-
     }
     .monBody #header {
-		height:300px;
+		    height:300px;
     }
 	.monBody #menu {
 		height:22px;
@@ -26,35 +22,17 @@
 		font-size:1.4em;
 		background:#000000;
     }
-    .monBody #header h1 {
-    	margin: 0; /* la mise à zéro de la marge du dernier élément du div #header permet
-      d'éviter une disparition de la marge (espace inexplicable entre les éléments div).
-      Si l'élément div est entouré d'une bordure, cette précaution n'est pas nécessaire,
-      car la bordure évite également la disparition de la marge */
-    }
-    .monBody #contenu
-    {
-    	 /* ne pas oublier que le remplissage est l'espace à l'intérieur du cadre de l'élément div,
-        alors que la marge est l'espace à l'extérieur de celui-ci */
+  .monBody #contenu {
 		 padding:20px;
     }
     .monBody #footer {
-    padding: 0 10px; /* ce remplissage correspond à l'alignement à gauche des éléments des div
-    qui apparaissent au-dessus. */
+    padding: 0 10px;
 		font-size:0.8em;
 		text-align:center;
 		height:150px;
 		background:url(/image/footer.jpg) no-repeat;
     }
-    .monBody #footer p {
-    	margin: 0; /* la mise à zéro de la marge du premier élément du pied de page permet d'éviter une possible
-       disparition de la marge (espace entre les éléments div) */
-    	padding: 10px 0; /* l'utilisation d'un remplissage pour cet élément crée un espace,
-      tout comme une marge l'aurait fait, mais en évitant le risque de disparition de la marge */
-    }
-
-	#menu a
-	{
+	#menu a	{
 		color:#ffffff;
 		text-decoration:none;
 	}
@@ -62,7 +40,18 @@
       max-height: 20%;
       max-width: 20%;
   }
-
-
-
-.
+  .tabpayscir  {
+ 	  float:right;
+ 	  padding:10px;
+ 	  border:1px solid black;
+ 	  margin:10px
+ 	  -moz-border-radius:15px;
+ 	  border-radius:15px;
+ }
+ .myboth  {
+ 	  clear:both;
+ }
+ a  {
+ 	text-decoration:none;
+ 	color:#0072ff;
+ }
