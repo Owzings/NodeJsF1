@@ -19,7 +19,7 @@ app.use(cookieParser());
 
 app.use(session({
     secret: 'nC0@#1pM/-0qA1+é',
-    name: 'Betisier',
+    name: 'GrandPrix',
     resave: true,
     saveUninitialized: true
 }));

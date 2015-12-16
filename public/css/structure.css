@@ -36,6 +36,9 @@
 		color:#ffffff;
 		text-decoration:none;
 	}
+  #menu {
+    text-align: center;
+  }
   #LogoNode {
       max-height: 20%;
       max-width: 20%;
