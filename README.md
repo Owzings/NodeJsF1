@@ -3,7 +3,8 @@
 =======
 Structure de base pour l'application GrandPrix de l'IUT en Node.js. <br />
 Le fichier grandprix.sql vous permettra de créer votre base grandprix. <br />
-Vous aurez aussi un jeu d'essai (réaliste mais pas exact).<br /> <br />
+Vous aurez aussi un jeu d'essai (réaliste mais pas exact).<br /> 
+Quelques petites <br />
 Pour démarrer le serveur, taper "node app" <br />
 Le serveur sera à l'écoute du port 6800 <br />
 Le fichier config.db contient les paramètres pour la base MySQL <br /> </br>
