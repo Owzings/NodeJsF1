@@ -6,8 +6,8 @@ Le fichier grandprix.sql vous permettra de créer votre base grandprix.<br />
 Vous aurez aussi un jeu d'essai (réaliste mais pas exact).<br />
 <b>(Some small jokes ☺ )</b><br />
 
-Pour démarrer le serveur, taper "node app".
-Le serveur sera à l'écoute du port 6800.
+Pour démarrer le serveur, taper "node app".<br />
+Le serveur sera à l'écoute du port 6800.<br />
 Le fichier config.db contient les paramètres pour la base MySQL<br /><br />
 
 Pour cloner le dépôt, vous pouvez taper :<br />
