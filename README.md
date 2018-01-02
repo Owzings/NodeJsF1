@@ -11,16 +11,14 @@ Pour démarrer le serveur, taper "node app".<br />
 Le serveur sera à l'écoute du port 6800.<br />
 Le fichier config.db contient les paramètres pour la base MySQL<br /><br />
 
-D
-
-appHelpers contient quelques fonctions bien utiles.<br />
-Elles sont incluses dans le fichier lui même : （︶︿︶）<br />
-appPresqueOk déporte les helpers dans le répertoire helpers<br />
-mais, il reste un bug ! <br /><br />
+Dans le répertoire helpers, le fichier handlebars.js<br />
+contient quelques fonctions bien utiles.<br />
+Vous pouvez en ajouter （︶︿︶）<br />
+<br /><br />
 
 Vous devez compléter ce travail pour obtenir les écrans demandés.<br />
-Je souhaite un code bien documenté et clair qui fonctionne sans intervention de ma part.<br />
-Merci de respecter la date limte de remise du travail !!!!<br /><br />
+Je souhaite un code bien documenté et clair qui fonctionne sans <br /> intervention de ma part.<br />
+Merci de respecter la date limite de remise du travail !!!!<br /><br />
 
 <b> ⊂(◉‿◉)つ <b><br />
 >>>>>>> 0675d1b7491153323286c259cdf27bdadf1253cd
