@@ -4,6 +4,7 @@
 * sa méthode getConnection permet de se connecter à MySQL
 *
 */
+
 var db = require('../configDb');
 
 /*
