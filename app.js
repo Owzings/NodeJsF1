@@ -35,15 +35,12 @@ app.use(function(request, response, next){
 *  Handlebars : moteur de template pour Express.
 * il va gérer les vues
 */
-hbs = handlebars.create({
-   defaultLayout: 'main', // nom de la page par defaut ici main.handlebars (structure de base HTML)
+var exphbs = require('express-handlebars');
+app.set('view engine', 'handlebars'); //nom de l'extension des fichiers
+var handlebars  = require('./helpers/handlebars.js')(exphbs); //emplacement des helpers
+// helpers : extensions d'handlebars
 
-   partialsDir: ['views/partials/'] // le vues partielles (le code HTML qui se répète dans toutes les pages)
-   // les vues qui changent suivant le choix de l'utilisateur sont à la racine du répertoire : views
-});
-
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+app.engine('handlebars', handlebars.engine);
 
 // chargement du routeur
 require('./router/router')(app);
