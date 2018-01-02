@@ -13,8 +13,7 @@ Le fichier config.db contient les paramètres pour la base MySQL<br /><br />
 
 Dans le répertoire helpers, le fichier handlebars.js<br />
 contient quelques fonctions bien utiles.<br />
-Vous pouvez en ajouter （︶︿︶）<br />
-<br /><br />
+Vous pouvez en ajouter （︶︿︶）<br /><br />
 
 Vous devez compléter ce travail pour obtenir les écrans demandés.<br />
 Je souhaite un code bien documenté et clair qui fonctionne sans <br /> intervention de ma part.<br />
