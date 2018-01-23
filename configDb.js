@@ -12,12 +12,14 @@ var mysql = require('mysql'); // voir https://github.com/felixge/node-mysql/
 var pool  = mysql.createPool({
   host     : 'localhost',
   user     : 'bd',
-  password : 'bede',
+  password : 'bde',
   database : 'grandprix'
 });
 
 module.exports.getConnection = function(callback) {
     pool.getConnection(function(err, connection) {
         callback(err, connection);
+         
     });
+
 };
