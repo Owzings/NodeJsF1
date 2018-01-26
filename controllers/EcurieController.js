@@ -1,4 +1,4 @@
-var model = require('../models/ecurie.js');
+let model = require('../models/ecurie.js');
 
    // //////////////////////// L I S T E R  E C U R I E S
 

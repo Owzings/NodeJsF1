@@ -1,4 +1,4 @@
-var express         = require('express'),
+let express         = require('express'),
     session         = require('express-session'),
     cookieParser    = require('cookie-parser'),
     bodyParser      = require('body-parser'), //pour récupérer les résultats des post
@@ -6,7 +6,7 @@ var express         = require('express'),
 	 http = require('http'),
 	 path = require('path');
 
-var app = express();
+let app = express();
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('port', 6800);

@@ -7,19 +7,19 @@
 */
 
 
-var mysql = require('mysql'); // voir https://github.com/felixge/node-mysql/
+let mysql = require('mysql'); // voir https://github.com/felixge/node-mysql/
 
-var pool  = mysql.createPool({
+let pool  = mysql.createPool({
   host     : 'localhost',
   user     : 'bd',
-  password : 'bde',
+  password : 'bede',
   database : 'grandprix'
 });
 
 module.exports.getConnection = function(callback) {
     pool.getConnection(function(err, connection) {
         callback(err, connection);
-         
+
     });
 
 };

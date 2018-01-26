@@ -5,7 +5,7 @@
 *
 */
 
-var db = require('../configDb');
+let db = require('../configDb');
 
 /*
 * Récupérer l'intégralité les écuries avec l'adresse de la photo du pays de l'écurie
@@ -17,7 +17,7 @@ module.exports.getListeEcurie = function (callback) {
         if(!err){
         	  // s'il n'y a pas d'erreur de connexion
         	  // execution de la requête SQL
-						var sql ="SELECT ecunum, payadrdrap, ecunom FROM ecurie e INNER JOIN pays p ";
+						let sql ="SELECT ecunum, payadrdrap, ecunom FROM ecurie e INNER JOIN pays p ";
 						sql= sql + "ON p.paynum=e.paynum ORDER BY ecunom";
 						//console.log (sql);
             connexion.query(sql, callback);
