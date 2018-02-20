@@ -2,9 +2,8 @@ let express         = require('express'),
     session         = require('express-session'),
     cookieParser    = require('cookie-parser'),
     bodyParser      = require('body-parser'), //pour récupérer les résultats des post
-	 handlebars  	  = require('express-handlebars'), hbs,
-	 http = require('http'),
-	 path = require('path');
+    http = require('http'),
+    path = require('path');
 
 let app = express();
 
@@ -27,27 +26,24 @@ app.use(session({
 /* ces lignes permettent d'utiliser directement les variables de session dans handlebars
  UTILISATION : {{session.MaVariable}}  */
 app.use(function(request, response, next){
-       response.locals.session = request.session;
-       next();
+    response.locals.session = request.session;
+    next();
 });
 
 /* express-handlebars - https://github.com/ericf/express-handlebars
 *  Handlebars : moteur de template pour Express.
 * il va gérer les vues
 */
-hbs = handlebars.create({
-   defaultLayout: 'main', // nom de la page par defaut ici main.handlebars (structure de base HTML)
+var exphbs = require('express-handlebars');
+app.set('view engine', 'handlebars'); //nom de l'extension des fichiers
+var handlebars  = require('./helpers/handlebars.js')(exphbs); //emplacement des helpers
+// helpers : ajouts de fonctionnalités pour handlebars
 
-   partialsDir: ['views/partials/'] // le vues partielles (le code HTML qui se répète dans toutes les pages)
-   // les vues qui changent suivant le choix de l'utilisateur sont à la racine du répertoire : views
-});
-
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+app.engine('handlebars', handlebars.engine);
 
 // chargement du routeur
 require('./router/router')(app);
 
 http.createServer(app).listen(app.get('port'), function(){
-  console.log('Serveur Node.js en attente sur le port ' + app.get('port'));
+    console.log('Serveur Node.js en attente sur le port ' + app.get('port'));
 });
