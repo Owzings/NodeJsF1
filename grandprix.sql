@@ -261,7 +261,7 @@ CREATE TABLE IF NOT EXISTS `login` (
 --
 
 INSERT INTO `login` (`LOGIN`, `PASSWD`) VALUES
-('admin', '5c46a8ead628e900fdb5c4322ab7f1b3315ae005');
+('admin', 'fcdda9d67ad2ffd96a0ed44ccb967e7b31747d54');
 
 -- --------------------------------------------------------
 

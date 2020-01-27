@@ -51,7 +51,7 @@
  	  -moz-border-radius:15px;
  	  border-radius:15px;
  }
- 
+
  .myboth  {
  	  clear:both;
  }
@@ -59,3 +59,8 @@
  	text-decoration:none;
  	color:#0072ff;
  }
+ .lienNotFound {align:center; style="background-color: #1d81b1;color: #FFFFFF;text-transform: uppercase;"}
+ .photoNotFound {
+   max-height: 40%;
+   max-width: 40%;
+}

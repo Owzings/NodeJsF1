@@ -10,6 +10,7 @@ module.exports = function(app){
 
 // Main Routes
     app.get('/', HomeController.Index);
+    app.get('/accueil', HomeController.Index);
 
 // pilotes
     app.get('/repertoirePilote', PiloteController.Repertoire);
@@ -25,7 +26,7 @@ module.exports = function(app){
 
 
 // tout le reste
-  app.get('*', HomeController.Index);
-  app.post('*', HomeController.Index);
+app.get('*', HomeController.NotFound);
+app.post('*', HomeController.NotFound);
 
 };
