@@ -1,0 +1,33 @@
+<h1>Administration</h1>
+
+<form method="post" action="/accueil">
+    <label>Login : </label> <input type="text" placeholder="login" name="login"/>
+    <br>
+    <br>
+    <label>Mot de passe : </label> <input type="password" placeholder="*****" name="pswd" />
+    <br>
+    <br>
+    <input type="submit" value="Connexion">
+    <input type="reset" value="Annuler">
+
+</form>
+
+<style>
+    form {
+        width: 40%;
+        margin: 0 auto;
+    }
+
+    label, input {
+        display: inline-block;
+    }
+
+    label {
+        width: 30%;
+        text-align: left;
+    }
+
+    label + input {
+        width: 30%;
+    }
+</style>

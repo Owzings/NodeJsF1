@@ -1,0 +1,31 @@
+
+<h1>{{infoResulat.0.gpnom}} ({{formatDate infoResulat.0.gpdate 'DD/MM/YYYY'}})</h1>
+
+<div class="inline">
+
+
+
+
+<table class="table">
+    <tr>
+        <td class="border"><strong>Place</strong></td>
+        <td class="border"><strong>Pilote</strong></td>
+        <td class="border"><strong>Temps</strong></td>
+        <td class="border"><strong>Nb Points</strong></td>
+    </tr>
+    {{#each infoResulat}}
+    <tr>
+        <td class="border">{{ inc @index}} </td>
+        <td class="border">{{this.pilnom}} {{this.pilprenom}}</td>
+        <td class="border">{{this.tempscourse}}</td>
+    </tr>
+
+
+{{/each}}
+</table>
+
+{{> listerResultat}}
+
+</div>
+
+<p>{{infoResulat.0.gpcommentaire}}</p>

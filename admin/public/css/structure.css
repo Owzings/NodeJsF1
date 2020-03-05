@@ -1,0 +1,152 @@
+    body {
+    	font-family: "Segoe UI", "DejaVu Sans",Verdana, sans-serif;
+    	background: url('/image/fond.jpg') repeat;
+		  font-size:0.8em;
+    	margin: 0;
+    	padding: 0;
+    	text-align: center;
+    	color: #000000;
+	}
+	
+	.inline {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.left2 {
+		display: flex;
+	}
+	.inline2 {
+		display: flex;
+	}
+
+	.inline3.width{
+		width: 70%;
+		padding-left: 10px;
+	}
+
+	.table {
+		width: 80%;
+	}
+    .monBody #container {
+    	width: 900px;
+    	margin: 0 auto;
+    	text-align: left;
+    	background:#ffffff;
+    }
+    .monBody #header {
+		    height:300px;
+    }
+	.monBody #menu {
+		height:22px;
+		color:#ffffff;
+		font-size:1.4em;
+		background:#000000;
+    }
+  .monBody #contenu {
+		 padding:20px;
+	}
+	
+.centered {
+	display: flex;
+	justify-content: center;
+}
+
+.buttons {
+	display: flex;
+	justify-content: center;
+}
+    .monBody #footer {
+    padding: 0 10px;
+		font-size:0.8em;
+		text-align:center;
+		height:150px;
+		background:url(/image/footer.jpg) no-repeat;
+    }
+	#menu a	{
+		color:#ffffff;
+		text-decoration:none;
+	}
+  #menu {
+    text-align: center;
+  }
+  #LogoNode {
+      max-height: 20%;
+      max-width: 20%;
+  }
+
+  .smalltext {
+	  justify-content: center;
+	  text-align: center;
+  }
+
+  .inline3 {
+	  display: flex;
+	  flex-direction: column;
+  }
+
+  .images {
+	  width: 200px;
+	  margin-left: 10px;
+  }
+
+
+
+  .left {
+	  display: block;
+	  width: 100%;
+  }
+
+  .letters {
+	  margin-left: 30px;
+	  /* font-size: 20px; */
+  }
+
+  .inline.center{
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+  }
+
+  .block {
+	  margin-right: 30px;
+	  padding-right: 30px;
+  }
+
+  .inline2.smallwidth  {
+	width: 60%;
+  }
+
+  .small {
+	  width: 50px;
+  }
+
+  .small.car {
+	  width: 100px;
+  }
+  .tabpayscir  {
+ 	  float:right;
+	   padding:10px;
+	   width: 40%;
+ 	  border:1px solid black;
+ 	  margin:10px
+ 	  -moz-border-radius:15px;
+ 	  border-radius:15px;
+ }
+
+ .myboth  {
+ 	  clear:both;
+ }
+ a  {
+ 	text-decoration:none;
+ 	color:#0072ff;
+ }
+
+ .border {
+	 border: solid 1px black;
+ }
+ .lienNotFound {align:center; style="background-color: #1d81b1;color: #FFFFFF;text-transform: uppercase;"}
+ .photoNotFound {
+   max-height: 40%;
+   max-width: 40%;
+}

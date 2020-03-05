@@ -1,0 +1,48 @@
+<div class="inline">
+
+    <div class="left">
+{{#each ecurieInfo}}
+<div class="inline2">
+    <div class="left2">
+    <img class="small2" src="/image/ecurie/{{this.ecuadresseimage}}">
+    </div>
+    <div class="right">
+    <p><strong>Nom : </strong> {{this.ecunom}}</p>
+    <p><strong>Directeur : </strong>{{this.ecunomdir}}</p>
+    <p><strong>Adresse : </strong>{{this.ecuadrsiege}}</p>
+    <p><strong>Pays :</strong> {{this.paynom}}</p>
+
+{{/each}}
+{{#each fournisseurPneu}}
+<p> <strong>Fournisseur de pneumatiques : </strong>{{this.fpnom}}</p>
+{{/each}}
+</div>
+</div>
+
+{{#if ifEcurieHasPilote}}
+<h3>Pilotes :</h3>{{#each ifEcurieHasPilote}}<p><a href="/infoPilote/{{this.pilnum}}">{{this.pilprenom}} {{this.pilnom}}</a></p>{{/each}}
+<div class="inline2 smallwidth">
+{{#each voirureEcurie}}
+<div class="block">
+<img class="small car" src="/image/ecurie/voiture/{{this.voiadresseimage}}">
+<p>{{this.voinom}}</p>
+<p>{{this.typelibelle}}</p>
+</div>
+{{/each}}
+{{else}}
+
+<p>Cette écurie ne participe pas au championnat cette année</p>
+{{/if}}
+</div>
+
+</div>
+
+{{> listerEcurie}}
+
+</div>
+
+
+
+
+
+

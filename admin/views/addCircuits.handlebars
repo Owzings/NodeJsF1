@@ -1,0 +1,18 @@
+<h1 style="text-align: center;"> Gestion des circuits</h1>
+<h3 style="text-align: center;"><a href="/ajouterCircuit">+ Ajouter un circuit</a></h3>
+<table>
+    <tr>
+        <td><strong>Nom</strong></td>
+        <td><strong>Longueur</strong></td>
+        <td><strong>Nombre de spéctateurs</strong></td>
+        <td><strong>Actions</strong></td>
+    </tr>
+    {{#each circuitInfo}}
+    <tr>
+    <td>{{this.cirnom}}</td>
+    <td>{{this.cirlongueur}}m</td>
+    <td>{{this.cirnbspectateurs}}</td>
+    <td><a href="/modifierPilote/{{this.pilnum}}">Modifier</a>     /  <a href="/deletePilote/{{this.pilnum}}"> Supprimer</a></td>
+    </tr>
+    {{/each}}
+</table>

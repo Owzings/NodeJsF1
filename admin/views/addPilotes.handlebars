@@ -1,0 +1,58 @@
+<h1 style="text-align: center;">Ajouter un pilote</h1>
+
+<form method="post" action="/ajouterPilote/info" enctype="multipart/form-data">
+    <div id="saisie_prenom">
+        <label>Prénom* : </label> <input type="text" placeholder="Prenom" name="prenomPilote" >
+        
+        <input name="idPil" type="number" value="{{ inc countPilotes.0.countPil}}" style="display: none" required>
+    </div>
+    <br>
+
+    <div id="saisie_nom">
+        <label>Nom* : </label> <input type="text" placeholder="Nom" name="nomPilote" required>
+    </div>
+    <br>
+        <div id="saisie_naiss">
+        <label>Date de naissance : </label> <input type="date" name="naissancePilote">
+    </div>
+        <br>
+    <div id="saisie_natio">
+        <label>Nationalité : </label>
+        <select name="natioPilote">
+            {{#each piloteNationalities}}
+                <option value="{{this.paynum}}">{{this.paynat}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <br>
+        <div id="saisie_ecurie">
+        <label>Nationalité : </label>
+        <select name="ecuriePilote">
+            {{#each piloteEcuries}}
+                <option value="{{this.ecunum}}">{{this.ecunom}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <br>
+    <div id="saisie_pts">
+        <label>Points* : </label> <input type="text" placeholder="Points" name="pointsPilote">pts
+    </div>
+    <br>
+        <div id="saisie_pds">
+        <label>Poids* : </label> <input type="text" placeholder="Poids" name="poidsPilote">kg
+    </div>
+    <br>
+            <div id="saisie_taille">
+        <label>Taille* : </label> <input type="text" placeholder="Taille" name="taillePilote">cm
+    </div>
+    <br>
+                <div id="saisie_description">
+        <label>Description* : </label> <input style="height: 200px; width:700px;" type="text" placeholder="Description" name="descriptionPilote">
+    </div>
+    <br>
+    <div class="buttons">
+    <input type="submit" value="Valider">
+    <input type="reset" value="Annuler">
+    </div>
+
+</form>

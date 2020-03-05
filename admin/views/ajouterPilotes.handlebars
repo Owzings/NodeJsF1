@@ -1,0 +1,24 @@
+<h1 style="text-align: center;">Gestion un pilote</h1>
+<h3 style="text-align: center;"><a href="/ajouterPilote">+ Ajouter un pilote</a></h3>
+
+<div class="centered">
+<table style="border: solid 1px black;">
+    <tr>
+        <td> <strong>Nom </strong></td>
+        <td><strong>Prénom</strong></td>
+        <td><strong>Date de naissance</strong></td>
+        <td><strong>Actions</strong></td>
+    </tr>
+    {{#each piloteInfo}}
+    <tr>
+        <td>{{this.pilnom}}</td>
+        <td>{{this.pilprenom}}</td>
+        <td>{{formatDate this.pildatenais 'DD/MM/YYYY'}}</td>
+        <td><a href="/modifierPilote/{{this.pilnum}}">Modifier</a>     /  <a href="/deletePilote/{{this.pilnum}}"> Supprimer</a></td>
+
+    </tr>
+    {{/each}}
+
+</table>
+
+</div>

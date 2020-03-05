@@ -1,0 +1,21 @@
+<!--
+* Celle vue permet d'afficher les écuries
+* la méthode ListerEcurie du controleur : villeControleur.js
+* lui passe ListerEcurie.
+* listeEcurie contient par exemple :
+
+[ { ecunum: 1, payadrdrap: 'italie.gif', ecunom: 'Ferrari' },
+  { ecunum: 10, payadrdrap: 'inde.gif', ecunom: 'Force India F1' }
+]
+
+*
+
+-->
+<table class="tabpayscir">
+	 {{#each listeEcurie}}
+		<tr><td><img src="/image/pays/{{this.payadrdrap}}" alt="drapeau du pays" />
+      <a href="/detailEcurie/{{this.ecunum}}"> {{this.ecunom}}</a>
+    </td></tr>
+ {{/each}}
+</table>
+<br class="myboth" />

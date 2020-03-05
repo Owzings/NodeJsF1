@@ -1,0 +1,19 @@
+<div class="inline">
+
+    <div class="left">
+{{#each circuitInfo}}
+
+<img style="width: 200px;" src="/image/circuit/{{this.ciradresseimage}}">
+
+<p><strong>Nom : </strong>{{this.cirnom}}</p>
+<p><strong>Longueur : </strong>{{this.cirlongueur}} m</p>
+<p><strong>Nombre de spectateurs : </strong>{{this.cirnbspectateurs}}</p>
+<p><strong>Pays : </strong>{{this.paynom}}</p>
+
+<p>{{this.cirtext}}</p>
+
+{{/each}}
+</div>
+
+{{> listerCircuit}}
+</div>

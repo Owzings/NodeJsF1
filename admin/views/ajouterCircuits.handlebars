@@ -1,0 +1,42 @@
+<h1 style="text-align: center;">Ajouter un circuit</h1>
+
+
+<form method="post" action="/ajouterCircuit/info" enctype="multipart/form-data">
+    <div id="saisie_prenom">
+        <label>Nom* : </label> <input type="text" placeholder="Nom" name="nomCircuit" >
+        
+        <input name="idCir" type="number" value="{{ inc countCir.0.countCir}}" style="display: none" required>
+    </div>
+    <br>
+
+    <div id="saisie_nom">
+        <label>Longueur</label> <input type="text" placeholder="Longueur" name="longueurCircuit" required>m
+    </div>
+        <br>
+    <div id="saisie_natio">
+        <label>Pays : </label>
+        <select name="paysCircuit">
+            {{#each circuitPays}}
+                <option value="{{this.paynum}}">{{this.paynom}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <br>
+    <div id="saisie_pts">
+        <label>Image </label> <input type="file" name="photoCircuit">
+    </div>
+    <br>
+        <div id="saisie_pds">
+        <label>Nombre de spectateurs :</label> <input type="text" placeholder="125 000" name="nbSpectateurs">
+    </div>
+    <br>
+                <div id="saisie_description">
+        <label>Description* : </label> <input style="height: 200px; width:700px;" type="text" placeholder="Description" name="descriptionCircuit">
+    </div>
+    <br>
+    <div class="buttons">
+    <input type="submit" value="Valider">
+    <input type="reset" value="Annuler">
+    </div>
+
+</form>

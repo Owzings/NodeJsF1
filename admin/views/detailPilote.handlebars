@@ -1,0 +1,47 @@
+<div class="smalltext">
+{{> firstLettersPilotes}}
+</div>
+{{#each piloteMainPhoto}}
+<div class="inline">
+
+<img src='/image/pilote/{{this.PHOADRESSE}}'>
+{{/each}}
+{{#each infoPiloteGeneric}}
+<div class="inline3 width">
+<p><strong>Nom : </strong>{{this.PILNOM}} {{this.PILPRENOM}}</p>
+<p><strong>Date de naissance : </strong>{{formatDate this.PILDATENAIS 'DD MMMM YYYY'}}</p>
+{{/each}}
+<p><strong>Nationalité : </strong>{{#each piloteNationality}} {{this.PAYNAT}} {{/each}}</p>
+{{#if piloteEcurie}}
+<p><strong>Ecurie :</strong>{{#each piloteEcurie}} {{this.ecunom}}{{/each}} </p>
+{{else}}
+<p><strong>Ecurie : </strong>Pas d'écurie cette année</p>
+{{/if}}
+</div>
+<div class="inline3">
+{{#each infoPiloteGeneric}}
+<p><strong> Poids : </strong>{{this.PILPOIDS}} kg</p>
+<p><strong> Taille : </strong>{{this.PILTAILLE}} cm</p>
+{{/each}}
+</div>
+
+
+</div>
+<p><strong>Principaux sponsors :</strong></p>
+{{#each piloteSponsor}}
+<p><strong>{{this.sponom}}</strong> ({{this.sposectactivite}})</p>
+{{/each}}
+{{#each infoPiloteGeneric}}
+<p><strong>Qui suis-je ? : </strong>{{this.PILTEXTE}}</p>
+{{/each}}
+
+
+<div class="inline"
+{{#each pilAllPhotos}}
+
+<img class="images"" src='/image/pilote/{{this.PHOADRESSE}}'>
+
+{{/each}}
+
+
+

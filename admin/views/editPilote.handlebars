@@ -1,0 +1,71 @@
+<h1 style="text-align: center;">Modifier un pilote</h1>
+
+
+{{#each getPiloteInfo}}
+
+<form method="post" action="/editPilote/info" enctype="multipart/form-data">
+    <div id="saisie_prenom">
+        <label>Prénom* : </label> <input type="text" value="{{this.pilprenom}}" name="prenomPilote" >
+        
+        <input name="idPil" type="number" value="{{this.pilnum}}" style="display: none" required>
+    </div>
+    <br>
+
+    <div id="saisie_nom">
+        <label>Nom* : </label> <input type="text" value="{{this.pilnom}}" name="nomPilote" required>
+    </div>
+    <br>
+        <div id="saisie_naiss">
+        <label>Date de naissance : </label> <input type="date" name="naissancePilote" value="{{formatDate this.pildatenais 'DD/MM/YYYY'}}">
+    </div>
+        <br>
+{{/each}}
+    <div id="saisie_natio">
+        <label>Nationalité : </label>
+        <select name="natioPilote">
+            {{#each getNationalities}}
+                {{#ifCond this.paynum '===' ../getPiloteNationality.0.PAYNUM}}
+                <option selected value="{{../getPiloteNationality.0.PAYNUM}}">{{../getPiloteNationality.0.PAYNAT}}</option>
+                {{else}}
+                <option value="{{this.paynum}}">{{this.paynat}}</option>
+                 {{/ifCond}}
+            {{/each}}
+        </select>
+    </div>
+    <br>
+        <div id="saisie_ecurie">
+        <label>Ecurie : </label> 
+        <select name="ecuriePilote">
+            {{#each getEcuries}}
+                {{#ifCond this.ecunum '===' ../getPiloteEcurie.0.ecunum}}
+                <option selected value="{{../getPiloteEcurie.0.ecunum}}">{{../getPiloteEcurie.0.ecunom}}</option>
+                {{else}}
+                <option value="{{this.ecunum}}">{{this.ecunom}}</option>
+                 {{/ifCond}}
+            {{/each}}
+        </select>
+    </div>
+    <br>
+    <div id="saisie_pts">
+        <label>Points* : </label> <input type="text" value="{{getPiloteInfo.0.pilpoints}}" name="pointsPilote">pts
+    </div>
+    <br>
+        <div id="saisie_pds">
+        <label>Poids* : </label> <input type="text" value="{{getPiloteInfo.0.pilpoids}}" name="poidsPilote">kg
+    </div>
+    <br>
+            <div id="saisie_taille">
+        <label>Taille* : </label> <input type="text" value="{{getPiloteInfo.0.piltaille}}" name="taillePilote">cm
+    </div>
+    <br>
+                <div id="saisie_description">
+        <label>Description* : </label> <input style="height: 200px; width:700px;" type="text" value="{{getPiloteInfo.0.piltexte}}" name="descriptionPilote">
+    </div>
+    <br>
+    <div class="buttons">
+    <input type="submit" value="Valider">
+    <input type="reset" value="Annuler">
+    </div>
+
+</form>
+
