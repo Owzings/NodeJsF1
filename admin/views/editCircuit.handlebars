@@ -1,0 +1,45 @@
+<h1 style="text-align: center;">Modifier un circuit</h1>
+
+{{#each getCircuitInfo}}
+
+<form method="post" action="/editCircuit/info" enctype="multipart/form-data">
+    <div id="saisie_nom">
+        <label>Nom* : </label> <input type="text" value="{{this.cirnom}}" name="nomCircuit" >
+        
+        <input name="idCir" type="number" value="{{this.cirnum}}" style="display: none" required>
+    </div>
+    <br>
+    <div id="saisie_longueur">
+        <label>Longueur* : </label><input type="text" value="{{this.cirlongueur}}" name="longueurCircuit" >m
+    </div>
+    <br>
+{{/each}}
+    <div id="saisie_pays">
+        <label>Pays : </label>
+        <select name="paysCircuit">
+            {{#each getAllCountries}}
+                {{#ifCond this.paynum '===' ../getCircuitCountries.0.paynum}}
+                <option selected value="{{../getCircuitCountries.0.paynum}}">{{../getCircuitCountries.0.paynom}}</option>
+                {{else}}
+                <option value="{{this.paynum}}">{{this.paynom}}</option>
+                 {{/ifCond}}
+            {{/each}}
+        </select>
+    </div>
+
+    <br>
+    <div id="saisie_nbSpectateurs">
+        <label>Nombre de spectateurs* : </label> <input type="text" value="{{getCircuitInfo.0.cirnbspectateurs}}" name="nbSpectateurs">personnes
+    </div>
+    <br>
+    <br>
+    <div id="saisie_description">
+        <label>Description* : </label> <input style="height: 200px; width:700px;" type="text" value="{{getCircuitInfo.0.cirtext}}" name="descriptionCircuit">
+    </div>
+    <br>
+    <div class="buttons">
+    <input type="submit" value="Valider">
+    <input type="reset" value="Annuler">
+    </div>
+
+</form>

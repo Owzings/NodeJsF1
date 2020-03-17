@@ -1,0 +1,20 @@
+<h1 style="text-align: center;"> Gestion des ecuries</h1>
+<h3 style="text-align: center;"><a href="/ajouterEcurie">+ Ajouter une écurie</a></h3>
+<div class="centered">
+<table style="border: solid black 1px;">
+    <tr>
+        <td><strong>Nom</strong></td>
+        <td><strong>Directeur</strong></td>
+        <td><strong>Points</strong></td>
+        <td><strong>Actions</strong></td>
+    </tr>
+    {{#each ecuriesInfo}}
+    <tr>
+    <td>{{this.ecunom}}</td>
+    <td>{{this.ecunomdir}}</td>
+    <td>{{this.ECUPOINTS}}</td>
+    <td><a href="/modifierEcurie/{{this.ecunum}}">Modifier</a>     /  <a href="/deleteEcurie/{{this.ecunum}}"> Supprimer</a></td>
+    </tr>
+    {{/each}}
+</table>
+</div>

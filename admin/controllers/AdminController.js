@@ -51,6 +51,34 @@ module.exports.connected = function(request,response){
     })
 };
 
+module.exports.getCircuitFromId = function(request, response){
+    response.title = "Modif d'un circuit";
+    let data = request.params.id;
+    async.parallel([
+        function(callback){
+            model.getCircuitFromId(data, function(err, result){callback(err, result)});
+        },
+        function(callback){
+            model.getCircuitCountries(data, function(err2, result2){callback(err2, result2)});
+        },
+        function(callback){
+            model.getAllCountries(function(err3, result3){callback(err3, result3)});
+        },
+    ],
+    function(err,result){
+        if(err){
+            console.log(err);
+                return;
+        }
+        response.getCircuitInfo = result[0];
+        response.getCircuitCountries = result[1];
+        response.getAllCountries = result[2];
+
+
+        response.render('editCircuit',response);
+     });   
+};
+
 module.exports.getPiloteFromId = function(request, response){
     response.title = "Modif d'un pilote";
     let data = request.params.id;
@@ -111,6 +139,26 @@ module.exports.ajoutPilotes = function(request,response){
         console.timeLog(result[0]);
 
         response.render('ajouterPilotes',response);
+       }
+    );
+};
+
+module.exports.ajoutEcuries = function(request, response) {
+    response.title = "Ajout d'une ecurie";
+    async.parallel([
+        function(callback){
+            model.getEcuriesInfo(function(err, result){callback(err, result)});
+        },
+    ],
+    function(err,result){
+        if(err){
+            console.log(err);
+            return;
+        }
+        response.ecuriesInfo = result[0];
+        console.log(result[0]);
+
+        response.render('ajouterEcuries',response);
        }
     );
 };
@@ -180,19 +228,20 @@ module.exports.ajoutCircuitsValid = function(request, response) {
         let idCir = fields;
         let nomCir = fields.nomCircuit;
         let longueurCir = fields.longueurCircuit;
-        let oldpath = files.photoCircuit.path;
-        let newpath = "public\\image\\circuit\\"+ files.photoCircuit.name;
-        fs.copy(oldpath,newpath,function(err){
-            if(err){
-                throw err;
-            }
-        });
-        let adr_photo = files.photoCircuit.name;
-        console.log(adr_photo);
-        let nbSpectateurs = field.nbSpectateurs;
-        let description = field.descriptionCircuit;
+        // let oldpath = files.photoCircuit.path;
+        // let newpath = "public\\image\\circuit\\"+ files.photoCircuit.name;
+        // fs.copy(oldpath,newpath,function(err){
+        //     if(err){
+        //         throw err;
+        //     }
+        // });
+        // let adr_photo = files.photoCircuit.name;
+        // console.log(adr_photo);
+        let nbSpectateurs = fields.nbSpectateurs;
+        let description = fields.descriptionCircuit;
+        let paysCircuit = fields.paysCircuit;
 
-        model.addCircuits(idCir, nomCir, longueurCir, nbSpectateurs, description, adr_photo);
+        model.addCircuits(idCir, nomCir, longueurCir, nbSpectateurs, description, paysCircuit);
         if(err){
             console.log(err);
             return;
@@ -220,6 +269,26 @@ module.exports.ajoutPiloteValid = function(request, response){
 
 
         model.addPilotes(idPil, prePil, nomPil, dateNaisPil, nationalitePil, ecuriePil, pointPil, poidsPil, taillePil, descrPil);
+        if(err){
+            console.log(err);
+            return;
+        }
+        response.render('validation',response);
+
+    });
+};
+
+module.exports.editCircuitValid = function(request, response){
+    response.title = "Modif de circuit";
+    form.parse(request, function(err, fields){
+        let idCir = fields.idCir;
+        let nomCir = fields.nomCircuit;
+        let longueurCir = fields.longueurCircuit;
+        let paysCir = fields.paysCircuit;
+        let nbSpectateurs = fields.nbSpectateurs;
+        let descriptionCircuit = fields.descriptionCircuit;
+
+        model.editCircuit(idCir, nomCir, longueurCir, paysCir, nbSpectateurs, descriptionCircuit);
         if(err){
             console.log(err);
             return;
@@ -264,6 +333,17 @@ module.exports.deletePiloteFromId = function(request, response){
         }
     response.render('suppression', response);
 
+    });
+};
+
+module.exports.deleteCircuitFromId = function(request, response){
+    let data = request.params.id;
+    model.deleteCircuitFromId(data, function(err, result){
+        if(err){
+            console.log(err);
+            return;
+        }
+        response.render('suppression', response);
     });
 };
 

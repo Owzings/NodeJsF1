@@ -19,6 +19,10 @@ module.exports = function(app){
     app.get('/circuits', AdminController.ajoutCircuits);
     app.get('/ajouterCircuit', AdminController.addCircuits);
     app.post('/ajouterCircuit/info', AdminController.ajoutCircuitsValid);
+    app.get('/deleteCircuit/:id', AdminController.deleteCircuitFromId);
+    app.get('/modifierCircuit/:id', AdminController.getCircuitFromId);
+    app.post('/editCircuit/info', AdminController.editCircuitValid);
+    app.get('/ecuries', AdminController.ajoutEcuries);
    //  app.get('/supprimerVip',AdminController.supprimerVip);
    //  app.post('/supprimerVip/del',AdminController.delVip);
 

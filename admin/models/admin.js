@@ -21,6 +21,17 @@ module.exports.getPilotes = function(callback) {
     });
 };
 
+
+module.exports.getAllCountries = function(callback) {
+    db.getConnection(function(err, connexion) {
+        if(!err){
+            let sql = "select distinct paynum, paynom from pays order by paynom asc";
+            connexion.query(sql, callback);
+            connexion.release();
+        }
+    });
+};
+
 module.exports.getNationalities = function(callback) {
     db.getConnection(function(err, connexion) {
         if(!err){
@@ -81,6 +92,16 @@ module.exports.getCountPilotes = function(callback) {
     });
 };
 
+module.exports.getEcuriesInfo = function(callback) {
+    db.getConnection(function(err, connexion){
+        if(!err){
+            let sql = "select ecunum, ecunom, ecunomdir, ECUADRSIEGE, ECUPOINTS from ecurie order by ecunom asc";
+            connexion.query(sql, callback);
+            connexion.release();
+        }
+    });
+};
+
 
 module.exports.getEcuries = function(callback) {
     db.getConnection(function(err, connexion) {
@@ -97,6 +118,17 @@ module.exports.addPilotes = function(numPil, prePil, nomPil, naissPil, natioPil,
         if(!err){
             let sql="INSERT INTO pilote SET paynum = " + natioPil + ", ecunum = " + ecuriePil + ", pilpoints = " + ptsPil + ", pilpoids = " + pdsPil + ", piltaille = " + taillePil + ", pilnom = '" + nomPil + "', pilprenom = '" + prePil + "', pildatenais = '" + naissPil + "', piltexte = '" + descrPil + "'";
             connexion.query(sql,callback);
+            connexion.release();
+        }
+    });
+};
+
+module.exports.editCircuit = function(numcir, nomcir, longueurCir, paysCir, nbSpectateurs, descrCir, callback) {
+    db.getConnection(function(err, connexion) {
+        if(!err) {
+            let sql = "update circuit set cirnom = '" + nomcir + "', cirlongueur = " + longueurCir + ", paynum = " + paysCir + ", cirnbspectateurs = " + nbSpectateurs + ", cirtext = '" + descrCir + "' where circuit.cirnum = " + numcir + ";";
+            connexion.query(sql,callback);
+            console.log(sql);
             connexion.release();
         }
     });
@@ -124,6 +156,38 @@ module.exports.deletePiloteFromId = function(data, callback){
     });
 };
 
+
+module.exports.deleteCircuitFromId = function(data, callback){
+    db.getConnection(function(err, connexion){
+        if(!err) {
+            let sql = "delete from circuit where cirnum = " + data + ";";
+            connexion.query(sql, callback);
+            connexion.release();
+        }
+    });
+};
+
+module.exports.getCircuitFromId = function(data, callback){
+    db.getConnection(function(err, connexion){
+        if(!err){
+            let sql = "select cirnum, paynum, cirnom, cirlongueur, cirnbspectateurs, cirtext from circuit where cirnum = " + data + ";";
+            connexion.query(sql,callback);
+            connexion.release();
+        }
+    });
+};
+
+module.exports.getCircuitCountries = function(data, callback){
+    db.getConnection(function(err, connexion) {
+        if(!err){
+            let sql = "select circuit.paynum, paynat, paynom from pays, circuit where pays.paynum = circuit.paynum and circuit.cirnum = " + data + ";";
+            connexion.query(sql, callback);
+            connexion.release();
+        }
+
+    });
+};
+
 module.exports.getPiloteFromId = function(data, callback){
     db.getConnection(function(err, connexion){
         if(!err){
@@ -137,7 +201,7 @@ module.exports.getPiloteFromId = function(data, callback){
 module.exports.getCircuits = function(data, callback) {
     db.getConnection(function(err, connexion){
         if(!err) {
-            let sql = "select cirnom, cirnum,cirlongueur, paynom, cirnbspectateurs, cirtext, ciradresseimage from circuit, pays where circuit.PAYNUM = pays.PAYNUM";
+            let sql = "select cirnom, cirnum,cirlongueur, paynom, cirnbspectateurs, cirtext, ciradresseimage from circuit, pays where circuit.PAYNUM = pays.PAYNUM order by cirnom asc";
             connexion.query(sql, data, callback);
             connexion.release();
         }
@@ -154,12 +218,12 @@ module.exports.getCountCircuit = function(data, callback) {
     })
 }
 
-module.exports.addCircuits = function(idCir, nomCir, longueurCir, nbSpectateurs, description, adr_photo, callback){
+module.exports.addCircuits = function(idCir, nomCir, longueurCir, nbSpectateurs, description, pays, callback){
     db.getConnection(function(err, connexion){
         if(!err){
-            let sql = "insert into circuit set SET cirnom = " + nomCir + ", cirlongueur = " + longueurCir + ", cirnbspectateurs = " + nbSpectateurs + ", ciradresseimage = " + adr_photo + ", cirtext = " + description + "'";
+            let sql = "insert into circuit SET cirnom = '" + nomCir + "', paynum = " + pays + ", ciradresseimage = 'singapour.png',  cirlongueur = " + longueurCir + ", cirnbspectateurs = " + nbSpectateurs + ", cirtext = '" + description + "'";
             console.log(sql);
-            connexion.query(sql, data, callback);
+            connexion.query(sql, callback);
             connexion.release();
         }
     });
