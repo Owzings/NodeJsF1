@@ -18,9 +18,37 @@
         <td class="border">{{ inc @index}} </td>
         <td class="border">{{this.pilnom}} {{this.pilprenom}}</td>
         <td class="border">{{this.tempscourse}}</td>
+        {{#ifCond @index '===' 0}}
+        <td class="border">25</td>
+        {{/ifCond}}
+                {{#ifCond @index '===' 1}}
+        <td class="border">18</td>
+        {{/ifCond}}
+                {{#ifCond @index '===' 2}}
+        <td class="border">15</td>
+        {{/ifCond}}
+                {{#ifCond @index '===' 3}}
+        <td class="border">12</td>
+        {{/ifCond}}
+                {{#ifCond @index '===' 4}}
+        <td class="border">10</td>
+        {{/ifCond}}
+                {{#ifCond @index '===' 5}}
+        <td class="border">8</td>
+        {{/ifCond}}
+                {{#ifCond @index '===' 6}}
+        <td class="border">6</td>
+        {{/ifCond}}
+                {{#ifCond @index '===' 7}}
+        <td class="border">4</td>
+        {{/ifCond}}
+                {{#ifCond @index '===' 8}}
+        <td class="border">2</td>
+        {{/ifCond}}
+                {{#ifCond @index '===' 9}}
+        <td class="border">1</td>
+        {{/ifCond}}
     </tr>
-
-
 {{/each}}
 </table>
 

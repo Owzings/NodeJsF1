@@ -1,0 +1,18 @@
+<h1 style="text-align: center;"> Gestion des sponsors</h1>
+<h3 style="text-align: center;"><a href="/ajouterSponsor">+ Ajouter un sponsor</a></h3>
+<div class="centered">
+<table style="border: solid black 1px;">
+    <tr>
+        <td><strong>Nom</strong></td>
+        <td><strong>Activité</strong></td>
+        <td><strong>Actions</strong></td>
+    </tr>
+    {{#each SponsorInfo}}
+    <tr>
+    <td>{{this.SPONOM}}</td>
+    <td>{{this.SPOSECTACTIVITE}}</td>
+    <td><a href="/modifierSponsor/{{this.SPONUM}}">Modifier</a>     /  <a href="/deleteSponsor/{{this.SPONUM}}"> Supprimer</a></td>
+    </tr>
+    {{/each}}
+</table>
+</div>

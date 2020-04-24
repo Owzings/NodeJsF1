@@ -23,16 +23,23 @@ module.exports = function(app){
     app.get('/modifierCircuit/:id', AdminController.getCircuitFromId);
     app.post('/editCircuit/info', AdminController.editCircuitValid);
     app.get('/ecuries', AdminController.ajoutEcuries);
-   //  app.get('/supprimerVip',AdminController.supprimerVip);
-   //  app.post('/supprimerVip/del',AdminController.delVip);
+    app.get('/ajouterEcurie', AdminController.addEcuries);
+    app.post('/ajouterEcurie/info', AdminController.ajoutEcurieValid);
+    app.get('/modifierEcurie/:id', AdminController.editEcurieFromId);
+    app.post('/editEcurie/info', AdminController.editEcurieValid);
+    app.get('/deleteEcurie/:id', AdminController.deleteEcurieFromId);
+    app.get('/sponsors',AdminController.ajoutSponsors);
+    app.get('/ajouterSponsor', AdminController.addSponsors);
+    app.post('/ajouterSponsor/info', AdminController.ajoutSponsorValid);
+    app.get('/deleteSponsor/:id', AdminController.deleteSponsorFromId);
+    app.get('/modifierSponsor/:id', AdminController.editSponsorFromId);
+    app.get('/resultats',AdminController.resultatsGP);
+    app.get('/resultats/:id',AdminController.resultatsGPFromId);
+    app.get('/resultats/saisie/supprimerResultat/:id', AdminController.deleteResultatFromId);
+    // app.post('/editSponsor/info', AdminController.editSponsorValid);
+    app.post('/resultats/saisie/ajouterResultat/:id', AdminController.AddResultToGP);
 
-   //  app.get('/photos',AdminController.newPhoto);
-   //  app.get('/ajouterPhoto',AdminController.newPhoto);
-   //  app.post('/ajouterPhoto/add',AdminController.ajoutPhoto);
-   //  app.get('/supprimerPhoto',AdminController.choixVipDelPhoto);
-   //  app.post('/supprimerPhoto/del', AdminController.delPhoto);
-   //  app.post('/supprimerPhoto/del/conf',AdminController.valDelPhoto);
-
+    
 
 // tout le reste
 app.get('*', HomeController.NotFound);

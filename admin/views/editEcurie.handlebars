@@ -1,0 +1,48 @@
+<h1 style="text-align: center;">Modifier une écurie</h1>
+
+{{#each getEcurieInfo}}
+
+<form method="post" action="/editEcurie/info" enctype="multipart/form-data">
+    <div id="saisie_prenom">
+        <label>Nom* : </label> <input type="text" value="{{this.ecunom}}" name="nomEcurie" >
+        
+        <input name="idEcur" type="number" value="{{this.ecunum}}" style="display: none" required>
+    </div>
+    <br>
+
+    <div id="saisie_nom">
+        <label>Directeur</label> <input type="text" value="{{this.ecunomdir}}" name="directeurEcurie" required>
+    </div>
+        <br>
+{{/each}}
+    <div id="saisie_natio">
+        <label>Pays : </label>
+        <select name="paysEcur">
+            {{#each getAllCountries}}
+            {{#ifCond this.paynum '===' ../getEcurieCountries.0.paynum}}
+                <option selected value="{{../getEcurieCountries.0.paynum}}">{{../getEcurieCountries.0.paynom}}</option>
+                {{else}}
+                <option value="{{this.paynum}}">{{this.paynom}}</option>
+                 {{/ifCond}}
+            {{/each}}
+        </select>
+    </div>
+    <br>
+    {{!-- <div id="saisie_pts">
+        <label>Image </label> <input type="file" name="photoCircuit">
+    </div> --}}
+    <br>
+        <div id="saisie_pds">
+        <label>Adresse du siège</label> <input type="text" style="height: 100px; width:200px"; value="{{getEcurieInfo.0.ecuadrsiege}}" name="adrSiege">
+    </div>
+    <br>
+                <div id="saisie_description">
+        <label>Points</label> <input type="text" value="{{getEcurieInfo.0.ecupoints}}" name="ptsEcurie">pts
+    </div>
+    <br>
+    <div class="buttons">
+    <input type="submit" value="Valider">
+    <input type="reset" value="Annuler">
+    </div>
+
+</form>

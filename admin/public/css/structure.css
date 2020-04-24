@@ -119,6 +119,7 @@
 
   .small {
 	  width: 50px;
+	  width: 10em;
   }
 
   .small.car {

@@ -1,0 +1,70 @@
+<h1 style="text-align: center;">Saisie des résultats</h1>
+
+<table class="centrer pure-table pure-table-bordered">
+    <thead>
+        <tr>
+             <th></th>
+             <th>Place</th>
+             <th>Pilote</th>
+             <th>Temps</th>
+             <th>Points</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each resultats}}
+        <tr>
+            <td class="border"><a href="/resultats/saisie/supprimerResultat/{{this.pilnum}}"><img src="/image/act_delete.png" alt=""></a></td>
+           <td class="border">{{inc @index}}</td>
+            <td class="border">{{this.pilnom}}</td>
+            <td class="border">{{this.tempscourse}}</td>
+                   {{#ifCond @index '===' 0}}
+        <td class="border">25</td>
+        {{/ifCond}}
+                {{#ifCond @index '===' 1}}
+        <td class="border">18</td>
+        {{/ifCond}}
+                {{#ifCond @index '===' 2}}
+        <td class="border">15</td>
+        {{/ifCond}}
+                {{#ifCond @index '===' 3}}
+        <td class="border">12</td>
+        {{/ifCond}}
+                {{#ifCond @index '===' 4}}
+        <td class="border">10</td>
+        {{/ifCond}}
+                {{#ifCond @index '===' 5}}
+        <td class="border">8</td>
+        {{/ifCond}}
+                {{#ifCond @index '===' 6}}
+        <td class="border">6</td>
+        {{/ifCond}}
+                {{#ifCond @index '===' 7}}
+        <td class="border">4</td>
+        {{/ifCond}}
+                {{#ifCond @index '===' 8}}
+        <td class="border">2</td>
+        {{/ifCond}}
+                {{#ifCond @index '===' 9}}
+        <td class="border">1</td>
+        {{/ifCond}}
+        </tr>
+        {{/each}}
+        {{#ifCond countResultats.0.countRes '<' 10}}
+        <form action="/resultats/saisie/ajouterResultat/{{data}}" method="post">
+        <td class="border">{{ inc countResultats.0.countRes }} </td>
+        <td class="border"><select name="pilote" id="">
+            {{#each pilotesOut}}
+            <option value="{{this.pilnum}}">{{this.pilnom}}</option>
+            {{/each}}
+            </select>
+        </td>
+        <td class="border">
+        <input type="hidden" value="{{data}}" name="idGP">
+        <input type="time" id="appt" step="0.001" name="timePilote" required>
+        </td>
+        <td><input class="pure-button pure-button-primary" type="submit" value="Ok"></td>
+        </form>
+        {{/ifCond}}
+    </tbody>
+
+</table>

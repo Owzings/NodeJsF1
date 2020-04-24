@@ -4,12 +4,15 @@ let express         = require('express'),
     bodyParser      = require('body-parser'), //pour récupérer les résultats des post
     http = require('http'),
     path = require('path');
+    fileUpload = require('express-fileupload');
 
 let app = express();
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('port', 6900);
 app.set('views', path.join(__dirname, 'views'));
+app.use(fileUpload());
+
 
 // routes static, le routeur n'y aura pas accès
 app.use(express.static(path.join(__dirname+ '/public')));

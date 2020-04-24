@@ -1,0 +1,35 @@
+<h1 style="text-align: center;">Ajouter un sponsor</h1>
+
+
+<form method="post" action="/ajouterSponsor/info" enctype="multipart/form-data">
+    <div id="saisie_prenom">
+        <label>Nom* : </label> <input type="text" value="{{getSponsorInfo.0.sponom}}" name="nomSponsor"" > 
+        
+        <input name="idSpons" type="number" value="{{ inc getCountSpons.0.countSpons}}" style="display: none" required>
+    </div>
+    <br>
+
+    <div id="saisie_nom">
+        <label>Secteur d'activité : </label> <input type="text" name="sectActivite" value="{{getSponsorInfo.0.sposectactivite}}" required>
+    </div>
+        <br>
+    <div id="saisie_natio">
+        <label>Ecurie sponsorisée : </label>
+        <select name="ecurieSpons">
+            {{#each getAllEcuries}}
+                <option value="{{this.ecunum}}">{{this.ecunom}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <br>
+    {{!-- <div id="saisie_pts">
+        <label>Image </label> <input type="file" name="photoCircuit">
+    </div> --}}
+
+    <br>
+    <div class="buttons">
+    <input type="submit" value="Valider">
+    <input type="reset" value="Annuler">
+    </div>
+
+</form>

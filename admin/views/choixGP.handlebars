@@ -1,0 +1,13 @@
+<h1>Résultats</h1>
+
+<h3>Selectionner un grand prix</h3>
+
+    <div id="saisie_natio">
+        <label>Ecurie sponsorisée : </label>
+        <select name="ecurieSpons">
+            {{#each getAllGP}}  
+                <option value="{{this.gpnum}}">{{this.gpnom}}</option>
+            {{/each}}
+        </select>
+
+    </div>

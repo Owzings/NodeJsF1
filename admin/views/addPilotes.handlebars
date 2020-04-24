@@ -26,7 +26,7 @@
     </div>
     <br>
         <div id="saisie_ecurie">
-        <label>Nationalité : </label>
+        <label>Écurie : </label>
         <select name="ecuriePilote">
             {{#each piloteEcuries}}
                 <option value="{{this.ecunum}}">{{this.ecunom}}</option>
@@ -34,6 +34,11 @@
         </select>
     </div>
     <br>
+
+      <label>Photo du pilote : </label>
+   <input name="photoPilote" type="file" required>
+   <br>
+   <br>
     <div id="saisie_pts">
         <label>Points* : </label> <input type="text" placeholder="Points" name="pointsPilote">pts
     </div>
